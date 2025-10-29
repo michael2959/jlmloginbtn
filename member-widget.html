@@ -25,7 +25,7 @@ body {
 </style>
 </head>
 <body>
-  <a id="member-btn" href="/account/login" target="_parent">Member Login</a>
+  <a id="member-btn" href="https://jlm-hrconsulting.com/account/login" target="_parent">Member Login</a>
 
   <script>
     const btn = document.getElementById('member-btn');
@@ -34,10 +34,10 @@ body {
       const path = parent.location.pathname;
       if (path.startsWith('/account') && !path.includes('login')) {
         btn.textContent = 'Logout';
-        btn.href = '/account/logout';
+        btn.href = 'https://jlm-hrconsulting.com/account/logout';
       } else {
         btn.textContent = 'Member Login';
-        btn.href = '/account/login';
+        btn.href = 'https://jlm-hrconsulting.com/account/login';
       }
     }, 700);
   </script>
