@@ -28,18 +28,22 @@ body {
   <a id="member-btn" href="https://jlm-hrconsulting.com/account/login" target="_parent">Member Login</a>
 
   <script>
-    const btn = document.getElementById('member-btn');
-    // Keep checking Squarespace’s URL every 700 ms
-    setInterval(() => {
-      const path = parent.location.pathname;
-      if (path.startsWith('/account') && !path.includes('login')) {
-        btn.textContent = 'Logout';
-        btn.href = 'https://jlm-hrconsulting.com/account/logout';
-      } else {
-        btn.textContent = 'Member Login';
-        btn.href = 'https://jlm-hrconsulting.com/account/login';
-      }
-    }, 700);
-  </script>
+const btn = document.getElementById('member-btn');
+
+// Listen for messages from Squarespace
+window.addEventListener('message', (event) => {
+  if (!event.data.pathname) return;
+  const path = event.data.pathname;
+
+  if (path.startsWith('/account') && !path.includes('login')) {
+    btn.textContent = 'Logout';
+    btn.href = 'https://YOUR-SQUARESPACE-DOMAIN/account/logout';
+  } else {
+    btn.textContent = 'Member Login';
+    btn.href = 'https://YOUR-SQUARESPACE-DOMAIN/account/login';
+  }
+});
+</script>
+
 </body>
 </html>
